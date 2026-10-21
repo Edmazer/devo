@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-purple text-white" aria-label="Main navigation">
+        <div class="container-md">
+            <a href=" {{url_for('home_page')}} " class="navbar-brand">
+              <img class="me-3" src=" {{ url_for('static', filename= '/img/logo.png') }} " alt="" width="48" height="38"/> Devo </a>
+            <div class="ms-auto">
+              <div class="container-fluid">
+                <!-- <a class="navbar-brand" href="#">Offcanvas navbar</a> -->
+                <!-- <button
+                  class="navbar-toggler p-0 border-0"
+                  type="button"
+                  id="navbarSideCollapse"
+                  aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button> -->
+                <div
+                    class="navbar-collapse bg-purple"
+                    id="navbarsExampleDefault">
+
+                      <div class="navbar-nav me-auto mb-2 mb-lg-0">
+                      
+                        <div class="nav-item dropdown">
+                          <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <strong>{{current_user.nome}}</strong>
+                          </a>
+                          <div class="dropdown-menu">
+                            <div>
+                              <span class="dropdown-item border-bottom">{{current_user.email}}</span>
+                            </div>
+
+                            <div>
+                              <span class="dropdown-item border-bottom">{{current_user.salario}}</span>
+                            </div>
+
+                            <div>
+                              <span class="dropdown-item border-bottom">{{current_user.trabalho}}</span>
+                            </div>
+
+                            <div>
+                              <a class="dropdown-item" href="#">
+                                <a href="{{ url_for('logout_page') }}" class="btn btn btn-danger m-2 border-bottom">Sair</a>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <main class="container mt-4">
+      <div
+        class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm mt-2">
+        <img
+          class="me-3"
+          src=" {{ url_for('static', filename= '/img/logo.png') }} "
+          alt=""
+          width="48"
+          height="38"
+        />
+        <div class="lh-1">
+          <h1 class="h6 mb-0 text-white lh-1">Devo comprar?</h1>
+          <small>Insira o nome do produto e o preço, e nós iremos conveter em horas de trabalho.</small>
+        </div>
+      </div>
+      <div class="my-3 p-3 bg-dark text-white rounded shadow-sm border-bottom">
+        <h6 class="border-bottom pb-2 mb-0">Vale a pena comprar?</h6>
+        <div class="d-flex text-body-secondary pt-3">
+          
+          <div class="pb-3 mb-0 small lh-sm ">
+            <div class="form">
+              <form method="post" autocorrect="on" autocomplete="on" class="form text-white">
+                  
+                        <div class="form-floating form-floating-custom mb-3">
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="produto"
+                            name="produto"
+                            placeholder="Kit gamer"
+                            required>
+                          <label for="produto">O que queres comprar?</label>
+                        </div>
+
+                        <div class="form-floating form-floating-custom mb-3">
+                          <input
+                            type="number"
+                            class="form-control"
+                            name="preco"
+                            id="preco"
+                            required
+                            placeholder="Kit gamer"/>
+                          <label for="preco">Qual é o preço do produto?</label>
+                        </div>
+
+                  <button class="btn btn-bd-primary mt-2 col-12" type="submit">Ver</button>
+              </form>    
+              
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+      <div class="my-3 p-3 bg-dark text-white rounded shadow-sm border-bottom">
+            <h6 class="border-bottom pb-2 mb-0">A sua escolha aparecerá aqui</h6>
+            <div class="d-flex text-body-white pt-3 ">
+            <svg
+                 aria-label="Placeholder: 32x32"
+                 class="bd-placeholder-img flex-shrink-0 me-2 rounded"
+                 height="32"
+                 preserveAspectRatio="xMidYMid slice"
+                 role="img"
+                 width="32"
+                 xmlns="http://www.w3.org/2000/svg">
+                 <title>Placeholder</title>
+                 <rect width="100%" height="100%" fill="#007bff"></rect>
+                 <text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text>
+             </svg>
+             <div class="pb-3 mb-0 small lh-sm w-100">
+                <div class="d-flex justify-content-between">
+                <strong class="text-gray-dark">{{ context['produto'] }}</strong>
+                 <strong class="d-block text-gray-dark">{{ context['preco'] }} Kz </strong>
+                 </div>
+                 <span class="d-block">Preço estipulado</span>
+             </div>
+            </div>
+      </div>
+
+            <div class="modal modal-sheet position-static d-block p-4 py-md-5" tabindex="-1" role="dialog" id="modalSheet" >
+                <div class="modal-dialog">
+                  <div class="modal-content rounded-4 shadow bg-purple text-white">
+                      <div class="modal-header border-bottom-0">
+                      <h1 class="modal-title fs-5">O produto {{ context['produto'] }}, custa-te </h1>
+                      </div>
+                      <div class="modal-body py-0">
+                        <h3>{{ context['tempo'] }}H {{ context['minuto'] }}m</h3>
+                      </div>
+                      <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+                        <p>Cerca de {{ context['dia'] }} dias de trabalho</p>
+                      </div>
+                  </div>
+                </div>
+            </div>
+
+    </main>
+
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="col-lg-8 mx-auto p-4 py-md-5">
+      <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-purple text-white" aria-label="Main navigation">
+        <div class="container-md">
+            <a href=" {{url_for('home_page')}} " class="navbar-brand">
+              <img class="me-3" src=" {{ url_for('static', filename= '/img/logo.png') }} " alt="" width="48" height="38"/> Devo </a>
+            <div class="ms-auto">
+              <div class="container-fluid">
+                <div
+                    class="navbar bg-purple"
+                    id="navbarsExampleDefault">
+
+                      <div class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <div class="nav-item">
+                          <a
+                            class="btn btn-ligth text-white border"
+                            href=" {{ url_for('cadastro_page') }} ">
+                            <strong>Cadastro</strong>
+                          </a>
+
+                          <a
+                            class="btn btn-primary text-white border"
+                            href=" {{ url_for('login_page') }} ">
+                            <strong>Login</strong>
+                          </a>
+                        </div>
+                        
+                </div>
+              </div>
+            </div>
+
+        </div>
+      </nav>
+      <main class="mt-4">
+        <h1  style="color: rgb(199, 199, 238);">Afinal o que é o Devo?</h1>
+        <p class="fs-5 col-md-8">
+          Devo um sistema criado para auxiliar na tomada de decisão sobre a compra de um produto.
+        </p>
+
+        <hr class=" mb-5" />
+
+        <div class="row g-5">
+          <div class="col-md-6">
+            <h2 style="color: rgb(199, 199, 238);">Como funciona?</h2>
+            <p>
+              O sistema recebe por parte do usuário o produto a ser comprado e o preço, convertedo o preço em horas de trabalho, o usuário decidirá se vale a pena ou não comprar.
+            </p>
+          
+          </div>
+        </div>
+      </main>
+    </div>
+
+{% endblock %}

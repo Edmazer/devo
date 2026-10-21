@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Edmazer dos Santos">
+    <title>Devo</title>
+
+    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/"> -->
+    <link rel="stylesheet" href=" {{ url_for('static', filename= '/css/login.css') }} ">
+    
+
+    <!-- Bootstrap core CSS -->
+<link href=" {{ url_for('static', filename= '/css/bootstrap.css') }} " rel="stylesheet">
+    
+    <!-- Custom styles for this template -->
+<link href=" {{ url_for('static', filename= '/css/style.css') }} " rel="stylesheet">
+
+</head>
+<body class="text-center bg-dark text-white">
+    <main class="form-signin">
+      <form method="post">
+        {{ form.csrf_token }}
+          <img class="mb-4" src=" {{ url_for('static', filename= '/img/logo.png') }} " alt="" width="125" height="95">
+          <h1 class="mb-3">Faça o seu login</h1>
+          <span>Realmente vale a pena comprar aquele produto?</span>
+
+          <div class="form-floating mt-3">
+            {{ form.email(class="form-control") }}
+
+            {{ form.email.label(for="floatingInput") }}
+          </div>
+
+          <div class="form-floating mt-3">
+            {{ form.senha(class="form-control") }}
+
+            {{ form.senha.label(for="floatingPassword") }}
+          </div>
+
+          {{ form.btn_submit(class="w-100 btn btn-bd-primary") }}
+      </form>
+      <p> Não tem uma conta? <a href=" {{ url_for('cadastro_page') }} ">Crie</a> </p>
+
+    </main>
+
+
+    
+</body>
+</html>

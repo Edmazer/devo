@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-bs-theme="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devo Comprar?</title>
+    <!-- Importação dos links dinâmicos CSS do Sistema(Flask) -->
+     <link rel="stylesheet" href=" {{ url_for('static', filename= '/css/bootstrap.css') }} ">
+     <link rel="stylesheet" href=" {{ url_for('static', filename= '/css/offcanvas-navbar.css') }} ">
+     <link rel="stylesheet" href=" {{ url_for('static', filename= '/css/style.css') }} ">
+</head>
+<body class=" bg-dark text-white">
+    <!-- <div class="container"> -->
+        {% block content %}
+
+        {% endblock %}
+    <!-- </div> -->
+    <!-- Importação dos links dinâmicos JS do Sistema(Flask) -->
+    <script src=" {{ url_for('static', filename= '/js/bootstrap.js') }} "></script>
+    <script src=" {{ url_for('static', filename= '/js/offcanvas-navbar.js') }} "></script>
+    <script src=" {{ url_for('static', filename= '/js/2026.js') }} "></script>
+    <script src=" {{ url_for('static', filename= '/js/color-models.js') }} "></script>
+</body>
+</html>
